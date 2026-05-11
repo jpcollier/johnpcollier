@@ -1,0 +1,53 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+---
+
+<Base title="Writing — John Collier" description="Short posts, reading notes, and things I'm thinking about.">
+  <Nav />
+  <main class="max-w-3xl mx-auto px-6 py-16">
+    <h1 class="font-serif text-5xl text-ink mb-2">Writing</h1>
+    <p class="text-muted text-sm mb-16">Short posts, reading notes, things I'm thinking about.</p>
+
+    {
+      posts.length === 0 ? (
+        <p class="text-muted">Nothing here yet.</p>
+      ) : (
+        <ul class="divide-y divide-border">
+          {posts.map((post) => {
+            const formatted = post.data.date.toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            });
+            return (
+              <li>
+                <a href={`/blog/${post.id.replace(/\.md$/, '')}`} class="group block py-8">
+                  <time
+                    datetime={post.data.date.toISOString()}
+                    class="text-xs uppercase tracking-widest text-muted"
+                  >
+                    {formatted}
+                  </time>
+                  <h2 class="font-serif text-2xl text-ink mt-1.5 group-hover:text-accent transition-colors duration-200">
+                    {post.data.title}
+                  </h2>
+                  {post.data.description && (
+                    <p class="text-muted text-sm mt-2 leading-relaxed">{post.data.description}</p>
+                  )}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      )
+    }
+  </main>
+  <Footer />
+</Base>

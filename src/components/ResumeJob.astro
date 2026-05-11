@@ -1,0 +1,63 @@
+---
+interface Props {
+  role: string;
+  org: string;
+  location: string;
+  dates: string;
+  bullets: string[];
+  storyId: string;
+  storyLabel?: string;
+  isLast?: boolean;
+}
+
+const {
+  role,
+  org,
+  location,
+  dates,
+  bullets,
+  storyId,
+  storyLabel = 'The story',
+  isLast = false,
+} = Astro.props;
+---
+
+<div class:list={['relative pl-10', { 'pb-12': !isLast, 'pb-2': isLast }]}>
+  {!isLast && <div class="absolute left-[5px] top-3 bottom-0 w-px bg-border"></div>}
+  <div class="timeline-dot absolute left-0 top-2 w-[11px] h-[11px] rounded-full bg-accent border-2 border-cream"></div>
+
+  <div>
+    <h3 class="font-serif text-xl text-ink leading-snug">{role}</h3>
+    <p class="text-muted text-sm mt-0.5">
+      {org} &middot; {location} &middot; {dates}
+    </p>
+
+    <ul class="mt-4 space-y-2">
+      {
+        bullets.map((b) => (
+          <li class="text-sm text-ink/85 leading-relaxed pl-3 border-l border-border">
+            {b}
+          </li>
+        ))
+      }
+    </ul>
+
+    <button
+      data-story-toggle={storyId}
+      class="mt-4 text-sm text-accent hover:text-accent/70 transition-colors duration-200 flex items-center gap-1"
+      aria-expanded="false"
+    >
+      <span class="toggle-label">{storyLabel} →</span>
+    </button>
+
+    <div id={storyId} class="story-panel">
+      <div class="pt-4">
+        <div class="p-4 bg-surface border-l-2 border-accent-light rounded-sm">
+          <div class="text-sm text-muted/90 leading-relaxed italic">
+            <slot />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

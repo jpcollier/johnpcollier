@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(node -e \"const pkg = require\\('./node_modules/astro/package.json'\\); console.log\\(pkg.version\\)\")",
+      "Bash(npm run *)"
+    ]
+  }
+}

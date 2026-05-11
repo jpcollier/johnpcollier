@@ -1,0 +1,380 @@
+---
+import Base from '../layouts/Base.astro';
+import Footer from '../components/Footer.astro';
+import ResumeJob from '../components/ResumeJob.astro';
+import SkillGroup from '../components/SkillGroup.astro';
+---
+
+<Base>
+
+  <!-- Sticky nav: hidden until hero scrolls out of view -->
+  <header id="site-header" class="bg-cream/95 backdrop-blur-sm border-b border-border/60">
+    <div class="max-w-3xl mx-auto px-6 h-14 flex items-center justify-between">
+      <span class="font-serif text-lg text-ink">John Patrick Collier</span>
+      <a
+        href="/resume.pdf"
+        class="text-sm text-accent border border-accent/30 hover:bg-accent hover:text-cream transition-colors duration-200 px-3 py-1.5 rounded-sm"
+      >
+        ↓ PDF
+      </a>
+    </div>
+  </header>
+
+  <!-- Splash overlay -->
+  <div id="splash" aria-hidden="true">
+    <div class="text-center px-6 max-w-2xl">
+      <h2
+        id="splash-name"
+        class="font-serif text-6xl md:text-8xl text-ink leading-[1.05] tracking-tight"
+      >
+        John Patrick Collier
+      </h2>
+
+      <div id="splash-line" class="h-px bg-accent mt-7 mb-8 mx-auto max-w-[180px]"></div>
+
+      <p
+        id="splash-tagline"
+        class="font-serif text-xl md:text-2xl text-ink/70 italic leading-relaxed"
+      >
+        I help governments understand what's working&mdash;and what isn't.
+      </p>
+
+      <button
+        id="splash-btn"
+        class="mt-12 flex flex-col items-center gap-1.5 mx-auto text-muted hover:text-accent transition-colors duration-300 cursor-pointer group"
+      >
+        <span class="text-xs uppercase tracking-widest font-sans">scroll to continue</span>
+        <span class="text-base group-hover:translate-y-0.5 transition-transform duration-300">↓</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <main class="max-w-3xl mx-auto px-6">
+
+    <!-- Hero: minimal, no h1 (splash covered that) -->
+    <section id="hero" class="py-20 pb-24">
+      <p
+        class="font-serif text-2xl md:text-3xl text-ink/75 italic leading-relaxed max-w-2xl hero-reveal"
+        style="transition-delay: 0s"
+      >
+        I help governments understand what's working&mdash;and what isn't.
+      </p>
+
+      <div
+        class="mt-8 text-sm space-y-1 hero-reveal"
+        style="transition-delay: 0.15s"
+      >
+        <p class="text-ink font-medium">Senior Data Systems Analyst</p>
+        <p class="text-muted">MTA Bridges &amp; Tunnels &middot; New York, NY</p>
+      </div>
+
+      <div
+        class="mt-5 flex flex-wrap gap-5 text-sm hero-reveal"
+        style="transition-delay: 0.3s"
+      >
+        <a
+          href="mailto:jpcollier@protonmail.com"
+          class="text-muted hover:text-accent transition-colors duration-200"
+        >
+          jpcollier@protonmail.com
+        </a>
+        <a
+          href="https://linkedin.com/in/johnpcollier"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-muted hover:text-accent transition-colors duration-200"
+        >
+          LinkedIn
+        </a>
+        <a
+          href="/resume.pdf"
+          class="text-accent hover:text-accent/70 transition-colors duration-200"
+        >
+          ↓ PDF
+        </a>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="scroll-reveal">
+      <div class="mb-10 pb-3 border-b border-border">
+        <p class="text-xs uppercase tracking-widest text-muted/60 mb-0.5">01</p>
+        <h2 class="font-serif text-2xl text-ink">Experience</h2>
+      </div>
+
+      <div class="relative">
+        <ResumeJob
+          role="Senior Data Systems Analyst"
+          org="MTA Bridges & Tunnels"
+          location="New York, NY"
+          dates="May 2024 – Present"
+          storyId="story-mta"
+          storyLabel="Why this role"
+          bullets={[
+            'Oversee development of data systems and reporting infrastructure for New York\'s Central Business District Tolling Program (congestion pricing).',
+            'Coordinate analytical work across internal teams and external agency partners to deliver research and evaluation products meeting statutory requirements.',
+            'Translate complex operational and policy data into executive memos, briefings, and public-facing materials for senior leadership and stakeholders.',
+            'Developed public dashboards and open datasets increasing transparency and accessibility of congestion pricing data for policymakers, researchers, and the public.',
+            'Played a key role in producing the program\'s first public evaluation report under significant public and political scrutiny.',
+          ]}
+        >
+          [Add your story: What drew you to the MTA role? What made congestion pricing feel
+          significant — both as a policy moment and as an analytical challenge? How did it feel
+          to shift from the nonprofit sector into government infrastructure?]
+        </ResumeJob>
+
+        <ResumeJob
+          role="Data Solutions Analyst"
+          org="Community Solutions"
+          location="New York, NY"
+          dates="January 2022 – May 2024"
+          storyId="story-cs"
+          storyLabel="Why this role"
+          bullets={[
+            'Partnered with leaders of local homeless response systems to scope analytical projects and deliver tailored data tools supporting strategic decision-making.',
+            'Managed a portfolio of web applications and data products used by internal teams and community partners.',
+            'Developed KPIs and reporting frameworks to evaluate program effectiveness and track progress toward strategic outcomes.',
+          ]}
+        >
+          [Add your story: What drew you to Community Solutions and the Built for Zero
+          methodology? What was it like building data tools that practitioners actually use?
+          What led you to move on after two and a half years?]
+        </ResumeJob>
+
+        <ResumeJob
+          role="Analyst"
+          org="What Works Cities"
+          location="New York, NY"
+          dates="November 2019 – January 2022"
+          storyId="story-wwc"
+          storyLabel="Why this role"
+          bullets={[
+            'Led cities through the What Works Cities Certification process, facilitating calls with mayors and leaders of prominent US cities on data-driven decision making.',
+            'Coordinated the development and launch of the City Budgeting for Equity and Recovery program supporting mayors and city financial leaders post-COVID-19.',
+            'Performed statistical analysis, data cleaning, and database management to support programmatic decision-making.',
+          ]}
+        >
+          [Add your story: What was it like working directly with mayors and city officials?
+          What did this role teach you about how governments actually make decisions? How did
+          it feel to come into this role fresh from grad school?]
+        </ResumeJob>
+
+        <ResumeJob
+          role="Manager of Research"
+          org="Greater Ohio Policy Center"
+          location="Columbus, OH"
+          dates="June 2018 – August 2019"
+          storyId="story-gopc-mgr"
+          storyLabel="Why this role"
+          bullets={[
+            'Scoped, managed, and conducted research projects on urban revitalization and smart growth that led to concrete policy changes.',
+            'Provided technical assistance to Ohio city leaders on blight removal, affordable housing, and downtown revitalization.',
+            'Estimated the $180 million economic impact of land banking in Central Ohio through geospatial analysis of administrative datasets.',
+            'Served as an evaluator of a $3 million grant, tracking neighborhood conditions through demographic/economic data and on-the-ground interviews.',
+          ]}
+        >
+          [Add your story: How did you grow into the manager role? What was the land banking
+          analysis like — and what impact did it actually have?]
+        </ResumeJob>
+
+        <ResumeJob
+          role="Research Associate"
+          org="Greater Ohio Policy Center"
+          location="Columbus, OH"
+          dates="May 2017 – June 2018"
+          storyId="story-gopc-ra"
+          storyLabel="Why this role"
+          isLast={true}
+          bullets={[
+            'Supported research projects on urban revitalization, smart growth, and economic development in Ohio cities.',
+          ]}
+        >
+          [Add your story: How did you end up at GOPC right out of undergrad? What drew you
+          to urban policy? What did you learn about cities in your first year in the field?]
+        </ResumeJob>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="mt-24 scroll-reveal">
+      <div class="mb-10 pb-3 border-b border-border">
+        <p class="text-xs uppercase tracking-widest text-muted/60 mb-0.5">02</p>
+        <h2 class="font-serif text-2xl text-ink">Education</h2>
+      </div>
+
+      <div class="relative">
+        <!-- NYU -->
+        <div class="relative pl-10 pb-12">
+          <div class="absolute left-[5px] top-3 bottom-0 w-px bg-border"></div>
+          <div class="timeline-dot absolute left-0 top-2 w-[11px] h-[11px] rounded-full bg-accent border-2 border-cream"></div>
+          <div>
+            <h3 class="font-serif text-xl text-ink leading-snug">
+              MS in Applied Urban Informatics
+            </h3>
+            <p class="text-muted text-sm mt-0.5">New York University &middot; 3.8 GPA &middot; August 2020</p>
+
+            <button
+              data-story-toggle="story-nyu"
+              class="mt-4 text-sm text-accent hover:text-accent/70 transition-colors duration-200"
+              aria-expanded="false"
+            >
+              <span class="toggle-label">Why NYU →</span>
+            </button>
+
+            <div id="story-nyu" class="story-panel">
+              <div class="pt-4">
+                <div class="p-4 bg-surface border-l-2 border-accent-light rounded-sm">
+                  <p class="text-sm text-muted/90 leading-relaxed italic">
+                    [Add your story: What drew you to the Applied Urban Informatics program? How
+                    did NYU and living in New York shape the direction of your career?]
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ohio State -->
+        <div class="relative pl-10 pb-2">
+          <div class="timeline-dot absolute left-0 top-2 w-[11px] h-[11px] rounded-full bg-accent border-2 border-cream"></div>
+          <div>
+            <h3 class="font-serif text-xl text-ink leading-snug">BA in Economics</h3>
+            <p class="text-muted text-sm mt-0.5">
+              Ohio State University &middot; cum laude &middot; May 2017
+            </p>
+
+            <button
+              data-story-toggle="story-osu"
+              class="mt-4 text-sm text-accent hover:text-accent/70 transition-colors duration-200"
+              aria-expanded="false"
+            >
+              <span class="toggle-label">Why Ohio State →</span>
+            </button>
+
+            <div id="story-osu" class="story-panel">
+              <div class="pt-4">
+                <div class="p-4 bg-surface border-l-2 border-accent-light rounded-sm">
+                  <p class="text-sm text-muted/90 leading-relaxed italic">
+                    [Add your story: Why economics? What did your undergrad years teach you, and
+                    how did you find your way toward cities and policy?]
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="mt-24 scroll-reveal">
+      <div class="mb-10 pb-3 border-b border-border">
+        <p class="text-xs uppercase tracking-widest text-muted/60 mb-0.5">03</p>
+        <h2 class="font-serif text-2xl text-ink">Skills</h2>
+      </div>
+      <div class="space-y-7">
+        <SkillGroup
+          label="Technical"
+          skills={['Python', 'SQL', 'ArcGIS', 'QGIS', 'Tableau', 'D3.js']}
+        />
+        <SkillGroup
+          label="Methods"
+          skills={[
+            'Spatial Data Analysis',
+            'Statistical Analysis',
+            'Data Visualization',
+            'Policy Evaluation',
+            'Data Cleaning & ETL',
+          ]}
+        />
+        <SkillGroup
+          label="Domains"
+          skills={[
+            'Transportation Policy',
+            'Urban Planning',
+            'Housing & Homelessness',
+            'Government Data',
+            'Stakeholder Engagement',
+            'Legislative Research',
+          ]}
+        />
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+
+</Base>
+
+<script>
+  const splash = document.getElementById('splash');
+  const siteHeader = document.getElementById('site-header');
+  let dismissed = false;
+
+  function revealPage() {
+    if (dismissed) return;
+    dismissed = true;
+
+    // Exit splash
+    splash?.classList.add('exiting');
+
+    // Stagger hero elements (CSS transition-delay handles timing)
+    document.querySelectorAll<HTMLElement>('.hero-reveal').forEach(el => {
+      el.classList.add('visible');
+    });
+
+    // Scroll-triggered section reveals
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          sectionObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.scroll-reveal').forEach(el => sectionObserver.observe(el));
+
+    // Sticky nav: show when hero section scrolls out of view
+    const heroSection = document.getElementById('hero');
+    if (heroSection && siteHeader) {
+      const navObserver = new IntersectionObserver(([entry]) => {
+        siteHeader.classList.toggle('visible', !entry.isIntersecting);
+      }, { rootMargin: '-60px 0px 0px 0px' });
+      navObserver.observe(heroSection);
+    }
+
+    setTimeout(() => splash?.remove(), 1000);
+  }
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    splash?.remove();
+    document.querySelectorAll<HTMLElement>('.hero-reveal, .scroll-reveal').forEach(el => {
+      el.classList.add('visible');
+    });
+  } else {
+    document.getElementById('splash-btn')?.addEventListener('click', revealPage);
+    window.addEventListener('wheel', (e) => { if (e.deltaY > 5) revealPage(); }, { once: true, passive: true });
+    window.addEventListener('touchmove', revealPage, { once: true, passive: true });
+    window.addEventListener('keydown', (e) => {
+      if (['ArrowDown', 'PageDown', ' '].includes(e.key)) revealPage();
+    }, { once: true });
+  }
+
+  // Story toggles
+  document.querySelectorAll<HTMLButtonElement>('[data-story-toggle]').forEach((btn) => {
+    const label = btn.querySelector('.toggle-label');
+    const originalText = label?.textContent?.trim() ?? 'The story →';
+
+    btn.addEventListener('click', () => {
+      const panel = document.getElementById(btn.dataset.storyToggle!);
+      if (!panel || !label) return;
+
+      const isOpen = panel.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(isOpen));
+      label.textContent = isOpen ? 'Close ↑' : originalText;
+    });
+  });
+</script>

@@ -1,23 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
-import Footer from '../components/Footer.astro';
 ---
 
 <Base>
-  <header class="sticky top-0 z-40 bg-linen/95 backdrop-blur-sm border-b border-border/60">
-    <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-      <span class="font-serif text-lg text-ink">John Patrick Collier</span>
-      <a
-        href="/resume.pdf"
-        class="text-sm text-forest border border-forest/30 hover:bg-forest hover:text-white transition-colors duration-200 px-3 py-1.5 rounded-sm"
-      >
-        ↓ PDF
-      </a>
-    </div>
-  </header>
-
-  <main class="max-w-5xl mx-auto px-6 pt-8 pb-24">
-    <div class="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-3">
+  <main class="min-h-screen flex items-center justify-center px-6 py-12">
+    <div class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-3">
 
       <!-- Bio card — forest background, spans 2 rows on desktop -->
       <div class="md:row-span-2 bg-forest rounded-xl p-8 flex flex-col justify-between min-h-72">
@@ -108,6 +95,4 @@ import Footer from '../components/Footer.astro';
 
     </div>
   </main>
-
-  <Footer />
 </Base>

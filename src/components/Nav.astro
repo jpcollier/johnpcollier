@@ -6,20 +6,20 @@ const currentPath = Astro.url.pathname;
   <div class="max-w-5xl mx-auto px-6 flex items-center justify-between">
     <a
       href="/"
-      class="font-serif text-lg text-ink hover:text-accent transition-colors duration-200"
+      class="font-serif text-lg text-ink hover:text-forest transition-colors duration-200"
     >
       John Collier
     </a>
     <div class="flex gap-6 text-sm text-muted">
       <a
         href="/resume"
-        class:list={['hover:text-ink transition-colors duration-200', { 'text-ink': currentPath.startsWith('/resume') }]}
+        class:list={['hover:text-ink transition-colors duration-200', { 'text-ink font-medium': currentPath.startsWith('/resume') }]}
       >
         Resume
       </a>
       <a
         href="/blog"
-        class:list={['hover:text-ink transition-colors duration-200', { 'text-ink': currentPath.startsWith('/blog') }]}
+        class:list={['hover:text-ink transition-colors duration-200', { 'text-ink font-medium': currentPath.startsWith('/blog') }]}
       >
         Writing
       </a>

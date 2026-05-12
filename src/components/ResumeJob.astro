@@ -17,14 +17,14 @@ const {
   dates,
   bullets,
   storyId,
-  storyLabel = 'The story',
+  storyLabel = 'Off the record',
   isLast = false,
 } = Astro.props;
 ---
 
 <div class:list={['relative pl-10', { 'pb-12': !isLast, 'pb-2': isLast }]}>
-  {!isLast && <div class="absolute left-[5px] top-3 bottom-0 w-px bg-border"></div>}
-  <div class="timeline-dot absolute left-0 top-2 w-[11px] h-[11px] rounded-full bg-accent border-2 border-cream"></div>
+  {!isLast && <div class="absolute left-[5px] top-3 bottom-0 w-px bg-sage-border"></div>}
+  <div class="timeline-dot absolute left-0 top-2 w-[11px] h-[11px] rounded-full bg-forest border-2 border-linen"></div>
 
   <div>
     <h3 class="font-serif text-xl text-ink leading-snug">{role}</h3>
@@ -43,19 +43,25 @@ const {
     </ul>
 
     <button
-      data-story-toggle={storyId}
-      class="mt-4 text-sm text-accent hover:text-accent/70 transition-colors duration-200 flex items-center gap-1"
+      data-offrecord-toggle={storyId}
+      class="mt-4 text-xs font-semibold tracking-wide text-forest hover:text-forest/70 transition-colors duration-200"
       aria-expanded="false"
     >
-      <span class="toggle-label">{storyLabel} →</span>
+      <span class="toggle-label">▸ {storyLabel}</span>
     </button>
 
     <div id={storyId} class="story-panel">
       <div class="pt-4">
-        <div class="p-4 bg-surface border-l-2 border-accent-light rounded-sm">
-          <div class="text-sm text-muted/90 leading-relaxed italic">
+        <div class="border-l-[3px] border-forest pl-4">
+          <div class="text-sm text-ink leading-relaxed italic">
             <slot />
           </div>
+          <button
+            data-offrecord-close={storyId}
+            class="mt-3 text-xs text-muted hover:text-ink transition-colors duration-200 block"
+          >
+            ▴ Put it back
+          </button>
         </div>
       </div>
     </div>

@@ -1,3 +1,286 @@
 ---
-return Astro.redirect('/');
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import ResumeJob from '../components/ResumeJob.astro';
+import SkillGroup from '../components/SkillGroup.astro';
 ---
+
+<Base title="Résumé — John Patrick Collier">
+  <Nav />
+
+  <main class="max-w-3xl mx-auto px-6 py-16 pb-24">
+
+    <!-- Page header -->
+    <div class="mb-12 flex items-start justify-between gap-4">
+      <div>
+        <p class="text-xs uppercase tracking-widest text-muted mb-2">Résumé</p>
+        <h1 class="font-serif text-4xl text-ink leading-tight">
+          10 years in civic data<br />& government analytics
+        </h1>
+      </div>
+      <a
+        href="/resume.pdf"
+        class="text-sm bg-forest text-white rounded-md px-4 py-2 hover:bg-forest/90 transition-colors duration-200 mt-2 shrink-0"
+      >
+        ↓ PDF
+      </a>
+    </div>
+
+    <!-- Experience -->
+    <section class="mb-16">
+      <div class="flex items-center gap-3 mb-8">
+        <h2 class="text-xs uppercase tracking-widest text-forest font-semibold shrink-0">Experience</h2>
+        <div class="flex-1 h-0.5 bg-forest"></div>
+      </div>
+      <div class="relative">
+        <ResumeJob
+          role="Senior Data Systems Analyst"
+          org="MTA Bridges & Tunnels"
+          location="New York, NY"
+          dates="May 2024 – Present"
+          storyId="story-mta"
+          bullets={[
+            'Oversee development of data systems and reporting infrastructure for New York\'s Central Business District Tolling Program (congestion pricing).',
+            'Coordinate analytical work across internal teams and external agency partners to deliver research and evaluation products meeting statutory requirements.',
+            'Translate complex operational and policy data into executive memos, briefings, and public-facing materials for senior leadership and stakeholders.',
+            'Developed public dashboards and open datasets increasing transparency and accessibility of congestion pricing data for policymakers, researchers, and the public.',
+            'Played a key role in producing the program\'s first public evaluation report under significant public and political scrutiny.',
+          ]}
+        >
+          [Add your story: What drew you to the MTA role? What made congestion pricing feel
+          significant — both as a policy moment and as an analytical challenge? How did it feel
+          to shift from the nonprofit sector into government infrastructure?]
+        </ResumeJob>
+
+        <ResumeJob
+          role="Data Solutions Analyst"
+          org="Community Solutions"
+          location="New York, NY"
+          dates="January 2022 – May 2024"
+          storyId="story-cs"
+          bullets={[
+            'Partnered with leaders of local homeless response systems to scope analytical projects and deliver tailored data tools supporting strategic decision-making.',
+            'Managed a portfolio of web applications and data products used by internal teams and community partners.',
+            'Developed KPIs and reporting frameworks to evaluate program effectiveness and track progress toward strategic outcomes.',
+          ]}
+        >
+          [Add your story: What drew you to Community Solutions and the Built for Zero
+          methodology? What was it like building data tools that practitioners actually use?
+          What led you to move on after two and a half years?]
+        </ResumeJob>
+
+        <ResumeJob
+          role="Analyst"
+          org="What Works Cities"
+          location="New York, NY"
+          dates="November 2019 – January 2022"
+          storyId="story-wwc"
+          bullets={[
+            'Led cities through the What Works Cities Certification process, facilitating calls with mayors and leaders of prominent US cities on data-driven decision making.',
+            'Coordinated the development and launch of the City Budgeting for Equity and Recovery program supporting mayors and city financial leaders post-COVID-19.',
+            'Performed statistical analysis, data cleaning, and database management to support programmatic decision-making.',
+          ]}
+        >
+          [Add your story: What was it like working directly with mayors and city officials?
+          What did this role teach you about how governments actually make decisions? How did
+          it feel to come into this role fresh from grad school?]
+        </ResumeJob>
+
+        <ResumeJob
+          role="Manager of Research"
+          org="Greater Ohio Policy Center"
+          location="Columbus, OH"
+          dates="June 2018 – August 2019"
+          storyId="story-gopc-mgr"
+          bullets={[
+            'Scoped, managed, and conducted research projects on urban revitalization and smart growth that led to concrete policy changes.',
+            'Provided technical assistance to Ohio city leaders on blight removal, affordable housing, and downtown revitalization.',
+            'Estimated the $180 million economic impact of land banking in Central Ohio through geospatial analysis of administrative datasets.',
+            'Served as an evaluator of a $3 million grant, tracking neighborhood conditions through demographic/economic data and on-the-ground interviews.',
+          ]}
+        >
+          [Add your story: How did you grow into the manager role? What was the land banking
+          analysis like — and what impact did it actually have?]
+        </ResumeJob>
+
+        <ResumeJob
+          role="Research Associate"
+          org="Greater Ohio Policy Center"
+          location="Columbus, OH"
+          dates="May 2017 – June 2018"
+          storyId="story-gopc-ra"
+          isLast={true}
+          bullets={[
+            'Supported research projects on urban revitalization, smart growth, and economic development in Ohio cities.',
+          ]}
+        >
+          [Add your story: How did you end up at GOPC right out of undergrad? What drew you
+          to urban policy? What did you learn about cities in your first year in the field?]
+        </ResumeJob>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="mb-16">
+      <div class="flex items-center gap-3 mb-8">
+        <h2 class="text-xs uppercase tracking-widest text-forest font-semibold shrink-0">Education</h2>
+        <div class="flex-1 h-0.5 bg-forest"></div>
+      </div>
+      <div class="relative">
+
+        <!-- NYU -->
+        <div class="relative pl-10 pb-12">
+          <div class="absolute left-[5px] top-3 bottom-0 w-px bg-sage-border"></div>
+          <div class="timeline-dot absolute left-0 top-2 w-[11px] h-[11px] rounded-full bg-forest border-2 border-linen"></div>
+          <h3 class="font-serif text-xl text-ink leading-snug">MS in Applied Urban Informatics</h3>
+          <p class="text-muted text-sm mt-0.5">New York University &middot; 3.8 GPA &middot; August 2020</p>
+          <button
+            type="button"
+            data-offrecord-toggle="story-nyu"
+            class="mt-4 text-xs font-semibold tracking-wide text-forest hover:text-forest/70 transition-colors duration-200"
+            aria-expanded="false"
+          >
+            <span class="toggle-label">▸ Off the record</span>
+          </button>
+          <div id="story-nyu" class="story-panel">
+            <div class="pt-4">
+              <div class="border-l-[3px] border-forest pl-4">
+                <p class="text-sm text-ink leading-relaxed italic">
+                  [Add your story: What drew you to the Applied Urban Informatics program? How
+                  did NYU and living in New York shape the direction of your career?]
+                </p>
+                <button
+                  type="button"
+                  data-offrecord-close="story-nyu"
+                  class="mt-3 text-xs text-muted hover:text-ink transition-colors duration-200 block"
+                >
+                  ▴ Put it back
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ohio State -->
+        <div class="relative pl-10 pb-2">
+          <div class="timeline-dot absolute left-0 top-2 w-[11px] h-[11px] rounded-full bg-forest border-2 border-linen"></div>
+          <h3 class="font-serif text-xl text-ink leading-snug">BA in Economics</h3>
+          <p class="text-muted text-sm mt-0.5">Ohio State University &middot; cum laude &middot; May 2017</p>
+          <button
+            type="button"
+            data-offrecord-toggle="story-osu"
+            class="mt-4 text-xs font-semibold tracking-wide text-forest hover:text-forest/70 transition-colors duration-200"
+            aria-expanded="false"
+          >
+            <span class="toggle-label">▸ Off the record</span>
+          </button>
+          <div id="story-osu" class="story-panel">
+            <div class="pt-4">
+              <div class="border-l-[3px] border-forest pl-4">
+                <p class="text-sm text-ink leading-relaxed italic">
+                  [Add your story: Why economics? What did your undergrad years teach you, and
+                  how did you find your way toward cities and policy?]
+                </p>
+                <button
+                  type="button"
+                  data-offrecord-close="story-osu"
+                  class="mt-3 text-xs text-muted hover:text-ink transition-colors duration-200 block"
+                >
+                  ▴ Put it back
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section>
+      <div class="flex items-center gap-3 mb-8">
+        <h2 class="text-xs uppercase tracking-widest text-forest font-semibold shrink-0">Skills</h2>
+        <div class="flex-1 h-0.5 bg-forest"></div>
+      </div>
+      <div class="space-y-7">
+        <SkillGroup
+          label="Technical"
+          skills={['Python', 'SQL', 'ArcGIS', 'QGIS', 'Tableau', 'D3.js']}
+        />
+        <SkillGroup
+          label="Methods"
+          skills={[
+            'Spatial Data Analysis',
+            'Statistical Analysis',
+            'Data Visualization',
+            'Policy Evaluation',
+            'Data Cleaning & ETL',
+          ]}
+        />
+        <SkillGroup
+          label="Domains"
+          skills={[
+            'Transportation Policy',
+            'Urban Planning',
+            'Housing & Homelessness',
+            'Government Data',
+            'Stakeholder Engagement',
+            'Legislative Research',
+          ]}
+        />
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Base>
+
+<script>
+  // Off the record toggles — open/close panels, only one open at a time
+  document.querySelectorAll<HTMLButtonElement>('[data-offrecord-toggle]').forEach((btn) => {
+    const label = btn.querySelector<HTMLElement>('.toggle-label')!;
+
+    btn.addEventListener('click', () => {
+      const panelId = btn.dataset.offrecordToggle!;
+      const panel = document.getElementById(panelId)!;
+
+      // Close any other open panels
+      document.querySelectorAll<HTMLElement>('.story-panel.open').forEach(p => {
+        if (p !== panel) {
+          p.classList.remove('open');
+          const otherBtn = document.querySelector<HTMLButtonElement>(
+            `[data-offrecord-toggle="${p.id}"]`
+          );
+          if (otherBtn) {
+            const otherLabel = otherBtn.querySelector<HTMLElement>('.toggle-label')!;
+            otherLabel.textContent = otherLabel.textContent!.replace('▾', '▸');
+            otherBtn.setAttribute('aria-expanded', 'false');
+          }
+        }
+      });
+
+      const isOpen = panel.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(isOpen));
+      label.textContent = label.textContent!.replace(isOpen ? '▸' : '▾', isOpen ? '▾' : '▸');
+    });
+  });
+
+  // "Put it back" close buttons inside panels
+  document.querySelectorAll<HTMLButtonElement>('[data-offrecord-close]').forEach((closeBtn) => {
+    closeBtn.addEventListener('click', () => {
+      const panelId = closeBtn.dataset.offrecordClose!;
+      const panel = document.getElementById(panelId)!;
+      panel.classList.remove('open');
+      const toggleBtn = document.querySelector<HTMLButtonElement>(
+        `[data-offrecord-toggle="${panelId}"]`
+      );
+      if (toggleBtn) {
+        const label = toggleBtn.querySelector<HTMLElement>('.toggle-label')!;
+        label.textContent = label.textContent!.replace('▾', '▸');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+</script>
